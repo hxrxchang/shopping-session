@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>express</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <p>りんご: 100円 <%=appleCount %>個 <%= appleAmount %>円</p>
+    <p>バナナ: 200円 <%=bananaCount %>個 <%= bananaAmount %>円</p>
+    <p>オレンジ: 150円 <%=orangeCount %>個 <%= orangeAmount %>円</p>
+    <p>合計: <%= totalPrice %>円</p>
+    <a href="/thanks">注文を確定する</a>
+    <a href="/">注文を続ける</a>
+  </body>
+</html>
