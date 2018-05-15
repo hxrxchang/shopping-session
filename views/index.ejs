@@ -13,10 +13,42 @@
   </head>
   <body>
     <form action="/" method="POST">
-      <p>りんご: 100円 <input class="fruit" type="number" name="appleCount" value="<%= appleCount %>">個</p>
-      <p>バナナ: 200円 <input class="fruit" type="number" name="bananaCount" value="<%= bananaCount %>">個</p>
-      <p>オレンジ: 150円 <input class="fruit" type="number" name="orangeCount" value="<%= orangeCount %>">個</p>
-      <input type="submit" value="カートに入れる">
+      <p>りんご: 100円 <input id="apple" class="fruit" type="number" name="appleCount" value="<%= appleCount %>">個</p>
+      <p>バナナ: 200円 <input id="banana" class="fruit" type="number" name="bananaCount" value="<%= bananaCount %>">個</p>
+      <p>オレンジ: 150円 <input id="orange" class="fruit" type="number" name="orangeCount" value="<%= orangeCount %>">個</p>
+      <button id="selectBtn" type="submit">カートに入れる</button>
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      // 個数が有効な数値化どうかを常に監視する
+      $(() => {
+        $('#apple').on('change', () => {
+          checkIsValid();
+        });
+
+        $('#banana').on('change', () => {
+          checkIsValid();
+        });
+
+        $('#orange').on('change', () => {
+          checkIsValid();
+        });
+
+        function checkIsValid() {
+          let apple = $('#apple').val();
+          let banana = $('#banana').val();
+          let orange = $('#orange').val();
+          console.log(apple, banana, orange);
+
+          if (apple < 0 || banana < 0 || orange < 0) {
+            $('#selectBtn').attr('disabled', true);
+          }
+          else {
+            $('#selectBtn').attr('disabled', false);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
